@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Artist Music Feature Trends</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">🎵 Music Insights</div>
+      <nav>
+        <ul>
+          <li class="active">Dashboard</li>
+          <li>Trends</li>
+          <li>Top Tracks</li>
+          <li>About</li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <header class="main-header">
+        <div>
+          <h1>Artist Music Feature Trends</h1>
+          <p>Analyze and visualize music data by artist.</p>
+        </div>
+        <form id="searchForm" autocomplete="off">
+          <input
+            type="text"
+            id="artistInput"
+            placeholder="Search artist..."
+            required
+          />
+          <button type="submit">Search</button>
+        </form>
+      </header>
+      <div id="errorMsg" class="error-msg"></div>
+
+      <!-- Dashboard Section -->
+      <section id="dashboardSection">
+        <!-- Hero Section -->
+        <section id="heroSection" class="hero-section" style="display: none">
+          <div class="hero-image">
+            <img
+              id="artistImage"
+              src="https://via.placeholder.com/120"
+              alt="Artist Image"
+            />
+          </div>
+          <div class="hero-info">
+            <h2 id="artistName">Artist Name</h2>
+            <p id="artistBio">Artist description will appear here.</p>
+          </div>
+        </section>
+
+        <!-- Dashboard Stats Cards -->
+        <section class="stats-row">
+          <div class="stat-card">
+            <div class="stat-icon">⚡</div>
+            <h3>Energy</h3>
+            <p id="energyValue">--</p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">💃</div>
+            <h3>Danceability</h3>
+            <p id="danceValue">--</p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🎵</div>
+            <h3>Tempo</h3>
+            <p id="tempoValue">--</p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🌟</div>
+            <h3>Popularity</h3>
+            <p id="popValue">--</p>
+          </div>
+        </section>
+
+        <!-- Mini Dashboard Section -->
+        <section class="mini-dashboard">
+          <!-- Mini Audio Features -->
+          <div class="mini-chart-card">
+            <h3>🎵 Mini Audio Features</h3>
+            <div class="mini-features-grid" id="miniFeatures">
+              <div class="loading">Loading audio features...</div>
+            </div>
+          </div>
+
+          <!-- Mini Trends -->
+          <div class="mini-chart-card">
+            <h3>📈 Mini Trends</h3>
+            <div class="mini-trends-container" id="miniTrends">
+              <div class="loading">Loading trends data...</div>
+            </div>
+          </div>
+
+          <!-- Top Tracks Preview -->
+          <div class="mini-chart-card">
+            <h3>🔥 Top Tracks Preview</h3>
+            <div class="mini-tracks-preview" id="miniTracksPreview">
+              <div class="loading">Loading top tracks...</div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <!-- Charts Section (for Trends tab) -->
+      <section class="chart-section" style="display: none;">
+        <div class="card chart-card">
+          <h2>Audio Features Overview</h2>
+          <canvas id="featureChart"></canvas>
+        </div>
+        
+        <div class="card chart-card">
+          <h2>Audio Features Pie Chart</h2>
+          <canvas id="pieChart"></canvas>
+        </div>
+
+        <div class="card chart-card">
+          <h2>Audio Features Distribution</h2>
+          <canvas id="boxPlotChart"></canvas>
+        </div>
+
+        <div class="card chart-card">
+          <h2>Release Timeline - Songs by Year</h2>
+          <canvas id="timelineChart"></canvas>
+        </div>
+
+        <div class="card chart-card">
+          <h2>Popularity Evolution Over Time</h2>
+          <canvas id="popularityTrendChart" width="400" height="300"></canvas>
+        </div>
+
+        <div class="card chart-card">
+          <h2>Trends Across Tracks</h2>
+          <canvas id="trendChart"></canvas>
+        </div>
+      </section>
+
+      <!-- Top Tracks Section -->
+      <section class="card top-tracks" id="topTracks" style="display: none;">
+        <h2>Top Tracks</h2>
+        <div class="tracks-grid">
+          <!-- Tracks will be dynamically inserted here -->
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="aboutSection" style="display: none;">
+        <div class="chart-card">
+          <h2>About This Dashboard</h2>
+          <p>This dashboard visualizes an artist's Spotify audio features, track trends, top tracks, yearly release patterns, and popularity evolution over time.</p>
+          <p>Features include:</p>
+          <ul>
+            <li>Audio feature analysis (energy, danceability, valence, etc.)</li>
+            <li>Trend analysis across different metrics</li>
+            <li>Top tracks with popularity scores</li>
+            <li>Release timeline and popularity evolution</li>
+            <li>Interactive charts and responsive design</li>
+          </ul>
+        </div>
+      </section>
+
+      <footer>
+        <p>Created with ❤️ by <span>Altaf Raja</span></p>
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
